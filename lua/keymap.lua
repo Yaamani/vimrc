@@ -172,6 +172,10 @@ vim.keymap.set({ 'n', 'v' }, '<A-b>' --[['∫']], '%')
 vim.keymap.set('n', '<leader>x', ':so<CR>')
 
 
+vim.keymap.set('i', '<A-j>' --[[ '∆' ]], function() return vim.fn['codeium#Accept']() end, { expr = true })
+vim.keymap.set('i', '<A-l>' --[[ '¬' ]], function() return vim.fn['codeium#CycleCompletions'](1) end, { expr = true })
+vim.keymap.set('i', '<A-h>' --[[ '˙' ]], function() return vim.fn['codeium#CycleCompletions'](-1) end, { expr = true })
+vim.keymap.set('i', '<A-x>' --[[ '≈' ]], function() return vim.fn['codeium#Clear']() end, { expr = true })
 
 -- vim.keymap.set('n', 'gf', function ()
 --   local cursor_row_position = vim.api.nvim_win_get_cursor(0)[1]
