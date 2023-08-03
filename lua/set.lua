@@ -71,11 +71,6 @@ vim.o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decr
 vim.o.foldlevelstart = 99
 vim.o.foldenable = true
 
--- startify
--- vim.g.startify_change_to_dir = 0
-vim.g.startify_session_persistence = 1
--- vim.g.startify_session_delete_buffers = 0
-
 vim.diagnostic.config({
   severity_sort = true
 })
