@@ -28,7 +28,7 @@ local on_attach = function(client, bufnr)
 
   -- See `:help K` for why this keymap
   map('n', 'K', vim.lsp.buf.hover, 'Hover Documentation')
-  map({ 'n', 'i' }, --[['<A-K>']] '', function() require('lsp_signature').toggle_float_win() end,
+  map({ 'n', 'i' }, '<A-K>' --[[ '' ]], function() require('lsp_signature').toggle_float_win() end,
     'Signature Documentation')
 
   -- Lesser used LSP functionality
