@@ -13,7 +13,8 @@ require('telescope').setup {
       "--column",
       "--smart-case",
       "--multiline",
-      "--pcre2",
+      -- "--pcre2",
+      "--engine=auto",
     },
     file_ignore_patterns = {
       "node_modules", "build", "dist", "yarn.lock"
