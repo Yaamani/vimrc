@@ -40,7 +40,7 @@ require('lazy').setup({
 
       -- Useful status updates for LSP
       -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
-      { 'j-hui/fidget.nvim', opts = {} },
+      { 'j-hui/fidget.nvim', tag = "legacy", opts = {} },
 
       -- Additional lua configuration, makes nvim stuff amazing!
       'folke/neodev.nvim',
@@ -243,12 +243,12 @@ require('lazy').setup({
   'ray-x/lsp_signature.nvim',
 
   'JoosepAlviste/nvim-ts-context-commentstring',
-
   { 'kevinhwang91/nvim-ufo', dependencies = 'kevinhwang91/promise-async' },
 
   'christoomey/vim-tmux-navigator',
 
-  { "anuvyklack/windows.nvim",
+  {
+    "anuvyklack/windows.nvim",
     dependencies = {
       "anuvyklack/middleclass",
       "anuvyklack/animation.nvim"
