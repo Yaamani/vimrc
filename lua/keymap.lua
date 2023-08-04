@@ -44,7 +44,7 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'diagnostic
 
 
 
-vim.keymap.set('n', jit.os == "OSX" and'<A-h>' or '˙', ':BufferLineCyclePrev<cr>', { noremap = true })
+vim.keymap.set('n', jit.os ~= "OSX" and'<A-h>' or '˙', ':BufferLineCyclePrev<cr>', { noremap = true })
 vim.keymap.set('n', jit.os ~= "OSX" and '<A-l>' or '¬', ':BufferLineCycleNext<cr>', { noremap = true })
 vim.keymap.set('n', '<A-left>', ':BufferLineMovePrev<cr>', { noremap = true })
 vim.keymap.set('n', '<A-right>', ':BufferLineMoveNext<cr>', { noremap = true })
