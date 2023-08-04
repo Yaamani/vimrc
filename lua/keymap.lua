@@ -44,8 +44,8 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'diagnostic
 
 
 
-vim.keymap.set('n', '<A-h>' --[[ '˙' ]], ':BufferLineCyclePrev<cr>', { noremap = true })
-vim.keymap.set('n', '<A-l>' --[[ '¬' ]], ':BufferLineCycleNext<cr>', { noremap = true })
+vim.keymap.set('n', jit.os == "OSX" and'<A-h>' or '˙', ':BufferLineCyclePrev<cr>', { noremap = true })
+vim.keymap.set('n', jit.os ~= "OSX" and '<A-l>' or '¬', ':BufferLineCycleNext<cr>', { noremap = true })
 vim.keymap.set('n', '<A-left>', ':BufferLineMovePrev<cr>', { noremap = true })
 vim.keymap.set('n', '<A-right>', ':BufferLineMoveNext<cr>', { noremap = true })
 
@@ -53,24 +53,18 @@ vim.keymap.set('n', '<A-right>', ':BufferLineMoveNext<cr>', { noremap = true })
 vim.keymap.set('n', '<leader>e', ':NvimTreeToggle<CR>', { noremap = true, desc = ':NvimTreeToggle' })
 
 
--- vim.keymap.set('n', --[['<A-l>']] '¬', '<C-w>l', { noremap = true })
--- vim.keymap.set('n', --[['<A-k>']] '˚', '<C-w>k', { noremap = true })
--- vim.keymap.set('n', --[['<A-j>']] '∆', '<C-w>j', { noremap = true })
--- vim.keymap.set('n', --[['<A-h>']] '˙', '<C-w>h', { noremap = true })
+vim.keymap.set('n', jit.os ~= "OSX" and '<A-w><A-w>' or '∑∑', ':BufferLineCyclePrev<CR>:bd! #<CR>', { desc = 'Delete a buffer' })
+vim.keymap.set('n', jit.os ~= "OSX" and '<A-w><A-q>' or '∑œ', '<C-w>q', { desc = 'Quit a window' })
 
 
-vim.keymap.set('n', '<A-w><A-w>' --[['∑∑']], ':BufferLineCyclePrev<CR>:bd! #<CR>', { desc = 'Delete a buffer' })
-vim.keymap.set('n', '<A-w><A-q>' --[['∑œ']], '<C-w>q', { desc = 'Quit a window' })
+vim.keymap.set('n', jit.os ~= "OSX" and '<A-t>t' or '†t', ':term<CR>')
+vim.keymap.set('n', jit.os ~= "OSX" and '<A-t>j' or '†j', ':bel split +term<CR>')
+vim.keymap.set('n', jit.os ~= "OSX" and '<A-t>k' or '†k', ':split +term<CR>')
+vim.keymap.set('n', jit.os ~= "OSX" and '<A-t>l' or '†l', ':vsplit +term<CR>')
+vim.keymap.set('n', jit.os ~= "OSX" and '<A-t>h' or '†h', ':lefta vsplit +term<CR>')
 
-
-vim.keymap.set('n', '<A-t>t' --[['†t']], ':term<CR>')
-vim.keymap.set('n', '<A-t>j' --[['†j']], ':bel split +term<CR>')
-vim.keymap.set('n', '<A-t>k' --[['†k']], ':split +term<CR>')
-vim.keymap.set('n', '<A-t>l' --[['†l']], ':vsplit +term<CR>')
-vim.keymap.set('n', '<A-t>h' --[['†h']], ':lefta vsplit +term<CR>')
-
-vim.keymap.set('n', '<A-t>n' --[['†n']], ':tabnext<CR>')
-vim.keymap.set('n', '<A-t>p' --[['†p']], ':tabprevious<CR>')
+vim.keymap.set('n', jit.os ~= "OSX" and '<A-t>n' or '†n', ':tabnext<CR>')
+vim.keymap.set('n', jit.os ~= "OSX" and '<A-t>p' or '†p', ':tabprevious<CR>')
 
 
 -- vim.keymap.set('n', '<C-d>', '<C-d>zz', { noremap = true})
@@ -91,10 +85,10 @@ vim.keymap.set('v', '/c',
 
 vim.keymap.set('n', '\\h', ':noh<CR>')
 
-vim.keymap.set('n', '<A-j>' --[['∆']], ':m .+1<CR>==', { noremap = true })
-vim.keymap.set('n', '<A-k>' --[['˚']], ':m .-2<CR>==', { noremap = true })
-vim.keymap.set('v', '<A-j>' --[['∆']], ':m \'>+1<CR>gv=gv', { noremap = true })
-vim.keymap.set('v', '<A-k>' --[['˚']], ':m \'<-2<CR>gv=gv', { noremap = true })
+vim.keymap.set('n', jit.os ~= "OSX" and '<A-j>' or '∆', ':m .+1<CR>==', { noremap = true })
+vim.keymap.set('n', jit.os ~= "OSX" and '<A-k>' or '˚', ':m .-2<CR>==', { noremap = true })
+vim.keymap.set('v', jit.os ~= "OSX" and '<A-j>' or '∆', ':m \'>+1<CR>gv=gv', { noremap = true })
+vim.keymap.set('v', jit.os ~= "OSX" and '<A-k>' or '˚', ':m \'<-2<CR>gv=gv', { noremap = true })
 
 vim.keymap.set('n', '<C-w>m', ':WindowsMaximize<CR>')
 vim.keymap.set('n', 'MM', ':WindowsMaximize<CR>')
@@ -164,18 +158,18 @@ local function moveBracket(c)
   if c == ']' then return ']}' else return '[{' end
 end
 
-vim.keymap.set({ 'n', 'v' }, '<A-[>' --[['“']], function () return moveBracket('[') end, { expr = true })
-vim.keymap.set({ 'n', 'v' }, '<A-]>' --[['‘']], function () return moveBracket(']') end, { expr = true })
-vim.keymap.set({ 'n', 'v' }, '<A-b>' --[['∫']], '%')
+vim.keymap.set({ 'n', 'v' }, jit.os ~= "OSX" and '<A-[>' or '“', function () return moveBracket('[') end, { expr = true })
+vim.keymap.set({ 'n', 'v' }, jit.os ~= "OSX" and '<A-]>' or '‘', function () return moveBracket(']') end, { expr = true })
+vim.keymap.set({ 'n', 'v' }, jit.os ~= "OSX" and '<A-b>' or '∫', '%')
 
 
 vim.keymap.set('n', '<leader>x', ':so<CR>')
 
 
-vim.keymap.set('i', '<A-j>' --[[ '∆' ]], function() return vim.fn['codeium#Accept']() end, { expr = true })
-vim.keymap.set('i', '<A-l>' --[[ '¬' ]], function() return vim.fn['codeium#CycleCompletions'](1) end, { expr = true })
-vim.keymap.set('i', '<A-h>' --[[ '˙' ]], function() return vim.fn['codeium#CycleCompletions'](-1) end, { expr = true })
-vim.keymap.set('i', '<A-x>' --[[ '≈' ]], function() return vim.fn['codeium#Clear']() end, { expr = true })
+vim.keymap.set('i', jit.os ~= "OSX" and '<A-j>' or  '∆' , function() return vim.fn['codeium#Accept']() end, { expr = true })
+vim.keymap.set('i', jit.os ~= "OSX" and '<A-l>' or  '¬' , function() return vim.fn['codeium#CycleCompletions'](1) end, { expr = true })
+vim.keymap.set('i', jit.os ~= "OSX" and '<A-h>' or  '˙' , function() return vim.fn['codeium#CycleCompletions'](-1) end, { expr = true })
+vim.keymap.set('i', jit.os ~= "OSX" and '<A-x>' or  '≈' , function() return vim.fn['codeium#Clear']() end, { expr = true })
 
 -- vim.keymap.set('n', 'gf', function ()
 --   local cursor_row_position = vim.api.nvim_win_get_cursor(0)[1]
@@ -187,3 +181,5 @@ vim.keymap.set('i', '<A-x>' --[[ '≈' ]], function() return vim.fn['codeium#Cle
 --   vim.regex('((?:[^/]*/)*)(.*)')
 --   print(vim.inspect(paths))
 -- end)
+
+-- vim.loop.os_uname()
