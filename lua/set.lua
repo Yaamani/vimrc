@@ -38,9 +38,10 @@ vim.o.termguicolors = true
 
 vim.o.relativenumber = true
 
-vim.o.shiftwidth = 4
-vim.o.tabstop = 4
-vim.o.expandtab = true
+vim.opt.shiftwidth = 4
+vim.opt.tabstop = 4
+vim.opt.softtabstop = 4
+-- vim.opt.expandtab = true
 
 vim.o.colorcolumn = '100'
 
