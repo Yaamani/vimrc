@@ -11,7 +11,7 @@ require('vscode').setup({
     -- ['@type'] = { fg = vsc.vscBlueGreen, bg = vsc.vscNone },
     -- ['@type.builtin'] = { fg = vsc.vscBlueGreen, bg = vsc.vscNone },
     -- ['@type.qualifier'] = { fg = vsc.vscBlueGreen, bg = vsc.vscNone },
-    ['DiagnosticUnnecessary'] = { fg = '#888888'--[[ vsc.vscGray ]], bg = vsc.vscNone, undercurl=true },
+    ['DiagnosticUnnecessary'] = { fg = '#888888', bg = vsc.vscNone, undercurl = true, sp = vsc.vscBlue },
   }
 })
 require('vscode').load()
