@@ -12,8 +12,10 @@ require('vscode').setup({
     -- ['@type.builtin'] = { fg = vsc.vscBlueGreen, bg = vsc.vscNone },
     -- ['@type.qualifier'] = { fg = vsc.vscBlueGreen, bg = vsc.vscNone },
     ['DiagnosticUnnecessary'] = { fg = '#888888', bg = vsc.vscNone, undercurl = true, sp = vsc.vscBlue },
+    ['SpellBad'] = { undercurl = true, sp = vsc.vscBlueGreen },
   }
 })
 require('vscode').load()
 
 -- vim.api.nvim_set_hl(0, 'DiagnosticUnneccessary', { fg = vsc.vscGray, bg = vsc.vscNone })
+-- vim.api.nvim_set_hl(0, 'SpellBad', { undercurl = true, sp = vsc.vscBlueGreen })

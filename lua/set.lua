@@ -22,6 +22,11 @@ vim.o.undofile = true
 vim.o.ignorecase = true
 vim.o.smartcase = true
 
+-- spell
+vim.opt.spell = true
+vim.opt.spelllang = 'en_us'
+vim.opt.spelloptions = 'camel'
+
 -- Keep signcolumn on by default
 vim.wo.signcolumn = 'yes:2'
 
@@ -60,6 +65,7 @@ vim.o.equalalways = false
 
 vim.o.winblend = 25
 
+-- startify
 vim.o.sessionoptions = "globals," .. vim.o.sessionoptions -- To save the sort order for bufferline (:help bufferline)
 
 -- nvimtree
