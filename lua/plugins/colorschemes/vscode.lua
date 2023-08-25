@@ -13,6 +13,9 @@ require('vscode').setup({
     -- ['@type.qualifier'] = { fg = vsc.vscBlueGreen, bg = vsc.vscNone },
     ['DiagnosticUnnecessary'] = { fg = '#888888', bg = vsc.vscNone, undercurl = true, sp = vsc.vscBlue },
     ['SpellBad'] = { undercurl = true, sp = vsc.vscBlueGreen },
+    ['SpellCap'] = { undercurl = true, sp = vsc.vscGray },
+    ['SpellRare'] = { undercurl = true, sp = vsc.vscGray },
+    ['SpellLocal'] = { undercurl = true, sp = vsc.vscGray },
   }
 })
 require('vscode').load()
