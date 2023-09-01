@@ -22,6 +22,8 @@ vim.o.undofile = true
 vim.o.ignorecase = true
 vim.o.smartcase = true
 
+if jit.os == 'Windows' then vim.opt.shell = [["C:/Program Files/PowerShell/7/pwsh.exe"]] end
+
 -- spell
 vim.opt.spell = true
 vim.opt.spelllang = 'en_us'
