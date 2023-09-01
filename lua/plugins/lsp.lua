@@ -28,7 +28,7 @@ local on_attach = function(client, bufnr)
 
   -- See `:help K` for why this keymap
   map('n', 'K', vim.lsp.buf.hover, 'Hover Documentation')
-  map({ 'n', 'i' }, jit.os ~= "OSX" and '<A-K>' or  '', function() require('lsp_signature').toggle_float_win() end,
+  map('n', jit.os ~= "OSX" and '<A-K>' or '', function() require('lsp_signature').toggle_float_win() end,
     'Signature Documentation')
 
   -- Lesser used LSP functionality
@@ -115,7 +115,7 @@ cmp.setup {
   mapping = cmp.mapping.preset.insert {
     ['<C-j>'] = cmp.mapping(cmp.mapping.select_next_item(), { 'i', 'c' }),
     ['<C-k>'] = cmp.mapping(cmp.mapping.select_prev_item(), { 'i', 'c' }),
-    ['<C-d>'] = cmp.mapping.scroll_docs( -4),
+    ['<C-d>'] = cmp.mapping.scroll_docs(-4),
     ['<C-f>'] = cmp.mapping.scroll_docs(4),
     ['<C-Space>'] = cmp.mapping.complete {},
     ['<CR>'] = cmp.mapping.confirm {
@@ -134,8 +134,8 @@ cmp.setup {
     ['<S-Tab>'] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_prev_item()
-      elseif luasnip.jumpable( -1) then
-        luasnip.jump( -1)
+      elseif luasnip.jumpable(-1) then
+        luasnip.jump(-1)
       else
         fallback()
       end
@@ -179,7 +179,14 @@ cmp.setup.cmdline(':', {
   })
 })
 
-require "lsp_signature".setup({})
+require "lsp_signature".setup({
+  bind = true,
+  handler_opts = {
+    border = "rounded"
+  },
+  toggle_key = jit.os ~= "OSX" and '<A-K>' or '',
+  toggle_key_flip_floatwin_setting = true
+})
 
 -- local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
 -- for type, icon in pairs(signs) do
@@ -189,9 +196,9 @@ require "lsp_signature".setup({})
 
 local signs = {
   { name = "DiagnosticSignError", text = "" },
-  { name = "DiagnosticSignWarn",  text = "" },
-  { name = "DiagnosticSignHint",  text = "" },
-  { name = "DiagnosticSignInfo",  text = "" },
+  { name = "DiagnosticSignWarn", text = "" },
+  { name = "DiagnosticSignHint", text = "" },
+  { name = "DiagnosticSignInfo", text = "" },
 }
 
 for _, sign in ipairs(signs) do
