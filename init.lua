@@ -1,4 +1,4 @@
--- ripgrep & treesitter should be installed on your system and added to path
+-- ripgrep (with pcre2 feature) should be installed on your system and added to path
 
 require "plugin-manager"
 require "set"

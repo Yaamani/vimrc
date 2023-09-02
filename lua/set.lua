@@ -29,6 +29,9 @@ vim.opt.spell = true
 vim.opt.spelllang = 'en_us'
 vim.opt.spelloptions = 'camel'
 
+vim.opt.winfixwidth = true
+vim.opt.winfixheight = true
+
 -- Keep signcolumn on by default
 vim.wo.signcolumn = 'yes:2'
 
