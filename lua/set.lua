@@ -22,15 +22,13 @@ vim.o.undofile = true
 vim.o.ignorecase = true
 vim.o.smartcase = true
 
+-- Use PowerShell 7 on Windows
 if jit.os == 'Windows' then vim.opt.shell = [["C:/Program Files/PowerShell/7/pwsh.exe"]] end
 
--- spell
+-- Spell
 vim.opt.spell = true
 vim.opt.spelllang = 'en_us'
 vim.opt.spelloptions = 'camel'
-
-vim.opt.winfixwidth = true
-vim.opt.winfixheight = true
 
 -- Keep signcolumn on by default
 vim.wo.signcolumn = 'yes:2'
@@ -69,6 +67,9 @@ vim.o.splitright = true
 vim.o.equalalways = false
 
 vim.o.winblend = 25
+
+vim.opt.winfixwidth = true
+vim.opt.winfixheight = true
 
 -- startify
 vim.o.sessionoptions = "globals," .. vim.o.sessionoptions -- To save the sort order for bufferline (:help bufferline)
