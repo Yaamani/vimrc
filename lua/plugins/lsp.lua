@@ -58,6 +58,7 @@ local servers = {
   tsserver = {},
   html = {},
   -- emmet_ls = {},
+  jsonls = {},
   cssls = {},
   tailwindcss = {},
   lua_ls = {
