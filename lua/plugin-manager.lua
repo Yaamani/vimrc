@@ -186,10 +186,12 @@ require('lazy').setup({
 
   'nvim-tree/nvim-web-devicons',
 
-  {
-    'prettier/vim-prettier',
-    build = 'yarn install --frozen-lockfile --production',
-  },
+  -- {
+  --   'prettier/vim-prettier',
+  --   build = 'yarn install --frozen-lockfile --production',
+  -- },
+
+  'sbdchd/neoformat',
 
   'Pocco81/auto-save.nvim',
 

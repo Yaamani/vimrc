@@ -94,3 +94,6 @@ vim.diagnostic.config({
 
 -- codeium
 vim.g.codeium_disable_bindings = 1
+
+-- Neoformat
+vim.g.neoformat_try_node_exe = 1
