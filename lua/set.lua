@@ -23,7 +23,22 @@ vim.o.ignorecase = true
 vim.o.smartcase = true
 
 -- Use PowerShell 7 on Windows
-if jit.os == 'Windows' then vim.opt.shell = [["C:/Program Files/PowerShell/7/pwsh.exe"]] end
+if jit.os == 'Windows' then
+  vim.opt.shell = [["C:/Program Files/PowerShell/7/pwsh.exe"]]
+  vim.o.shellcmdflag = '-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.Encoding]::UTF8;'
+  vim.o.shellredir = '2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode'
+  vim.o.shellpipe = '2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode'
+  vim.opt.shellquote = ''
+  vim.opt.shellxquote = ''
+
+  -- vim.o.shell = executable(`'pwsh'` ) ? `'pwsh'`  : `'powershell'`
+  -- vim.o.shellcmdflag  =
+  -- "-NoLogo -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.UTF8Encoding]::new();$PSDefaultParameterValues[`''` Out-File:Encoding`''` ]=`''` utf8`''` ;"
+  -- vim.o.shellredir    = '2>&1 | %%{ "$_" } | Out-File %s; exit $LastExitCode'
+  -- vim.o.shellpipe     = '2>&1 | %%{ "$_" } | Tee-Object %s; exit $LastExitCode'
+  -- vim.opt.shellquote  = ''
+  -- vim.opt.shellxquote = ''
+end
 
 -- Spell
 vim.opt.spell = true
@@ -71,6 +86,8 @@ vim.o.winblend = 25
 vim.opt.winfixwidth = true
 vim.opt.winfixheight = true
 
+-- vim.opt.verbose = 1
+
 -- startify
 vim.o.sessionoptions = "globals," .. vim.o.sessionoptions -- To save the sort order for bufferline (:help bufferline)
 
@@ -80,7 +97,7 @@ vim.g.loaded_netrwPlugin = 1
 
 -- nvim-ufo
 vim.o.foldcolumn = '1' -- '0' is not bad
-vim.o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
+vim.o.foldlevel = 99   -- Using ufo provider need a large value, feel free to decrease the value
 vim.o.foldlevelstart = 99
 vim.o.foldenable = true
 
@@ -97,3 +114,9 @@ vim.g.codeium_disable_bindings = 1
 
 -- Neoformat
 vim.g.neoformat_try_node_exe = 1
+-- vim.g.neoformat_javascript_prettier = {
+--   -- exe = 'prettier',
+--   exe = 'C:/Users/mahmoud/Documents/PROGRAMMING/GISCON/environmental-protected-areas-atlas/node_modules/.bin/prettier',
+--   -- args = { --[[ '--stdin', ]] '--single-quote', '--trailing-comma' },
+--   stdin = 1,
+-- }
