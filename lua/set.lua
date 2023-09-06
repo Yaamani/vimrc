@@ -24,20 +24,18 @@ vim.o.smartcase = true
 
 -- Use PowerShell 7 on Windows
 if jit.os == 'Windows' then
-  vim.opt.shell = [["C:/Program Files/PowerShell/7/pwsh.exe"]]
-  vim.o.shellcmdflag = '-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.Encoding]::UTF8;'
-  vim.o.shellredir = '2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode'
-  vim.o.shellpipe = '2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode'
-  vim.opt.shellquote = ''
-  vim.opt.shellxquote = ''
-
-  -- vim.o.shell = executable(`'pwsh'` ) ? `'pwsh'`  : `'powershell'`
-  -- vim.o.shellcmdflag  =
-  -- "-NoLogo -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.UTF8Encoding]::new();$PSDefaultParameterValues[`''` Out-File:Encoding`''` ]=`''` utf8`''` ;"
-  -- vim.o.shellredir    = '2>&1 | %%{ "$_" } | Out-File %s; exit $LastExitCode'
-  -- vim.o.shellpipe     = '2>&1 | %%{ "$_" } | Tee-Object %s; exit $LastExitCode'
-  -- vim.opt.shellquote  = ''
+  -- vim.opt.shell = [["C:/Program Files/PowerShell/7/pwsh.exe"]]
+  -- vim.o.shellcmdflag = '-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.Encoding]::UTF8;'
+  -- vim.o.shellredir = '2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode'
+  -- vim.o.shellpipe = '2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode'
+  -- vim.opt.shellquote = ''
   -- vim.opt.shellxquote = ''
+
+  vim.cmd([[let &shell = executable('pwsh') ? 'pwsh' : 'powershell']])
+  vim.cmd([[let &shellcmdflag = '-NoLogo -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.UTF8Encoding]::new();$PSDefaultParameterValues[''Out-File:Encoding'']=''utf8'';Remove-Alias -Force -ErrorAction SilentlyContinue tee;']])
+  vim.cmd([[let &shellredir = '2>&1 | %%{ "$_" } | Out-File %s; exit $LastExitCode']])
+  vim.cmd([[let &shellpipe  = '2>&1 | %%{ "$_" } | tee %s; exit $LastExitCode']])
+  vim.cmd([[set shellquote= shellxquote=]])
 end
 
 -- Spell
