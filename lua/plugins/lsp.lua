@@ -180,15 +180,6 @@ cmp.setup.cmdline(':', {
   })
 })
 
-require "lsp_signature".setup({
-  bind = true,
-  handler_opts = {
-    border = "rounded"
-  },
-  toggle_key = jit.os ~= "OSX" and '<A-K>' or '',
-  toggle_key_flip_floatwin_setting = true
-})
-
 -- local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
 -- for type, icon in pairs(signs) do
 --   local hl = "DiagnosticSign" .. type
