@@ -38,6 +38,10 @@ vim.fn.sign_define('DapStopped',              { text='', texthl='DapStopped',
 --   log_console_level = vim.log.levels.ERROR -- Logging level for output to console. Set to false to disable console output.
 -- })
 
+require('dap').defaults.javascript.exception_breakpoints = {'caught', 'uncaught'}
+require('dap').defaults.typescript.exception_breakpoints = {'caught', 'uncaught'}
+require('dap').defaults["pwa-node"].exception_breakpoints = {'caught', 'uncaught'}
+
 require("dap").adapters["pwa-node"] = {
   type = "server",
   host = "localhost",
