@@ -15,7 +15,7 @@ require "plugins.startify"
 require "plugins.nvimtree"
 require "plugins.illuminate"
 require "plugins.neoscroll"
-require "plugins.scrollbar"
+-- require "plugins.scrollbar" -- The culprit of an extremely slow performance
 require "plugins.Comment"
 require "plugins.windows"
 require "plugins.ufo"

@@ -1,5 +1,5 @@
 require('neoscroll').setup({
-  -- easing_function = 'sine',
+  easing_function = 'sine',
   -- mappings = {'<C-u>', '<C-d>', '<C-b>', '<C-f>', --[['<C-y>', '<C-e>',--]] 'zt', 'zz', 'zb'},
   use_local_scrolloff = true,
   respect_scrolloff = true,

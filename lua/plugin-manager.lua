@@ -59,11 +59,12 @@ require('lazy').setup({
 
   -- Useful plugin to show you pending keybinds.
   { 'folke/which-key.nvim',          opts = {} },
+
   { -- Adds git releated signs to the gutter, as well as utilities for managing changes
     'lewis6991/gitsigns.nvim',
     config = function()
       require('gitsigns').setup()
-      require("scrollbar.handlers.gitsigns").setup()
+      -- require("scrollbar.handlers.gitsigns").setup()
     end
   },
 
@@ -101,16 +102,14 @@ require('lazy').setup({
     end,
     -- commit = 'db9ee339b5556aa832ca58871fd18f9467a18520'
   },
-
   {
     'folke/tokyonight.nvim'
   },
 
 
 
-  { -- Set lualine as statusline
-    'nvim-lualine/lualine.nvim',
-  },
+   -- Set lualine as statusline
+  'nvim-lualine/lualine.nvim',
 
   { -- Add indentation guides even on blank lines
     'lukas-reineke/indent-blankline.nvim',
@@ -222,18 +221,19 @@ require('lazy').setup({
 
   { 'karb94/neoscroll.nvim' },
 
-  {
-    'petertriho/nvim-scrollbar',
-    config = function()
-    end
-  },
+  -- {
+  --   'petertriho/nvim-scrollbar',
+  --   config = function()
+  --   end
+  -- },
+
   {
     "kevinhwang91/nvim-hlslens",
     config = function()
-      -- require('hlslens').setup() is not required
-      require("scrollbar.handlers.search").setup({
-        -- hlslens config overrides
-      })
+      require('hlslens').setup()
+      -- require("scrollbar.handlers.search").setup({
+      --   -- hlslens config overrides
+      -- })
     end,
   },
 
@@ -246,6 +246,7 @@ require('lazy').setup({
   'ray-x/lsp_signature.nvim',
 
   'JoosepAlviste/nvim-ts-context-commentstring',
+
   { 'kevinhwang91/nvim-ufo', dependencies = 'kevinhwang91/promise-async' },
 
   'christoomey/vim-tmux-navigator',
