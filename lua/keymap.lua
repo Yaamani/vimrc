@@ -57,11 +57,21 @@ vim.keymap.set('n', jit.os ~= "OSX" and '<A-w><A-w>' or '∑∑', ':BufferLineCy
 vim.keymap.set('n', jit.os ~= "OSX" and '<A-w><A-q>' or '∑œ', '<C-w>q', { desc = 'Quit a window' })
 
 
-vim.keymap.set('n', jit.os ~= "OSX" and '<A-t>t' or '†t', ':term<CR>')
-vim.keymap.set('n', jit.os ~= "OSX" and '<A-t>j' or '†j', ':bel split +term<CR>')
-vim.keymap.set('n', jit.os ~= "OSX" and '<A-t>k' or '†k', ':split +term<CR>')
-vim.keymap.set('n', jit.os ~= "OSX" and '<A-t>l' or '†l', ':vsplit +term<CR>')
-vim.keymap.set('n', jit.os ~= "OSX" and '<A-t>h' or '†h', ':lefta vsplit +term<CR>')
+
+local function handle_term(term_map)
+  if jit.os == "Windows" then
+    local sh = vim.o.shell
+    return [[:let &shell=executable('pwsh')?'pwsh':'powershell'<CR>]] .. term_map .. ':set shell=' .. sh .. '<CR>'
+  else
+    return term_map
+  end
+end
+
+vim.keymap.set('n', jit.os ~= "OSX" and '<A-t>t' or '†t', handle_term(':term<CR>'))
+vim.keymap.set('n', jit.os ~= "OSX" and '<A-t>j' or '†j', handle_term(':bel split +term<CR>'))
+vim.keymap.set('n', jit.os ~= "OSX" and '<A-t>k' or '†k', handle_term(':split +term<CR>'))
+vim.keymap.set('n', jit.os ~= "OSX" and '<A-t>l' or '†l', handle_term(':vsplit +term<CR>'))
+vim.keymap.set('n', jit.os ~= "OSX" and '<A-t>h' or '†h', handle_term(':lefta vsplit +term<CR>'))
 
 vim.keymap.set('n', jit.os ~= "OSX" and '<A-t>n' or '†n', ':tabnext<CR>')
 vim.keymap.set('n', jit.os ~= "OSX" and '<A-t>p' or '†p', ':tabprevious<CR>')
