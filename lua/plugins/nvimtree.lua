@@ -17,25 +17,17 @@ require("nvim-tree").setup { -- BEGIN_DEFAULT_OPTS
     require('nvim-tree.api').config.mappings.default_on_attach(bufnr)
     -- vim.keymap.set('n', '<C-j>', require('nvim-tree.api').node.open.edit, { desc = 'Open',  buffer = bufnr, noremap = true, silent = true, nowait = true })
   end,
-  remove_keymaps = false,
   select_prompts = false,
   view = {
     centralize_selection = false,
     cursorline = true,
     debounce_delay = 15,
     width = 30,
-    hide_root_folder = false,
     side = "left",
     preserve_window_proportions = true,
     number = false,
     relativenumber = false,
     signcolumn = "yes",
-    mappings = {
-      custom_only = false,
-      list = {
-        -- user mappings go here
-      },
-    },
     float = {
       enable = false,
       quit_on_focus_loss = true,
