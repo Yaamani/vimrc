@@ -24,7 +24,7 @@ vim.keymap.set('n', '<leader>/', require('telescope.builtin').current_buffer_fuz
 -- vim.keymap.set('n', '<leader>sf', function() return require('telescope.builtin').find_files({ search_dirs={".", ".."} }) end, { desc = '[S]earch [F]iles' })
 vim.keymap.set('n', '<leader><leader>', require('telescope.builtin').buffers, { desc = '[S]earch existing [b]uffers' })
 vim.keymap.set('n', '<leader>sf', require('telescope.builtin').find_files, { desc = 'Search files' })
-vim.keymap.set('n', '<leader>sF', function() require('telescope.builtin').find_files({ hidden = true }) end, { desc = 'Search files (including hidden)' })
+vim.keymap.set('n', '<leader>sF', function() require('telescope.builtin').find_files({ hidden = true, no_ignore = true, no_ignore_parent = true }) end, { desc = 'Search files (including hidden & ignored)' })
 vim.keymap.set('n', '<leader>sh', require('telescope.builtin').help_tags, { desc = '[S]earch [H]elp' })
 vim.keymap.set('n', '<leader>sw', require('telescope.builtin').grep_string, { desc = '[S]earch current [W]ord' })
 vim.keymap.set('n', '<leader>sg', require('telescope.builtin').live_grep, { desc = '[S]earch by [G]rep' })
