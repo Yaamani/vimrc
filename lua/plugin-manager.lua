@@ -282,4 +282,7 @@ require('lazy').setup({
   },
 
   'Exafunction/codeium.vim',
+
+  -- 'AckslD/swenv.nvim',
+
 }, {})

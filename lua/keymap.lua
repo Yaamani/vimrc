@@ -183,6 +183,10 @@ vim.keymap.set('i', jit.os ~= "OSX" and '<A-l>' or  '¬' , function() return vim
 vim.keymap.set('i', jit.os ~= "OSX" and '<A-h>' or  '˙' , function() return vim.fn['codeium#CycleCompletions'](-1) end, { expr = true })
 vim.keymap.set('i', jit.os ~= "OSX" and '<A-x>' or  '≈' , function() return vim.fn['codeium#Clear']() end, { expr = true })
 
+
+-- vim.keymap.set('n', '<leader>pe', "<cmd>lua require('swenv.api').pick_venv()<cr>", { desc = "Pick python virtualenv" });
+
+
 -- vim.keymap.set('n', 'gf', function ()
 --   local cursor_row_position = vim.api.nvim_win_get_cursor(0)[1]
 --   local cursor_column_position = vim.api.nvim_win_get_cursor(0)[2]

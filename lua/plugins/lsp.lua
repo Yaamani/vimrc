@@ -65,7 +65,7 @@ end
 local servers = {
   clangd = {},
   -- gopls = {},
-  -- pyright = {},
+  pyright = {},
   -- rust_analyzer = {},
   tsserver = {},
   html = {},
@@ -238,3 +238,16 @@ require "lsp_signature".setup({
   select_signature_key = nil, -- cycle to next signature, e.g. '<M-n>' function overloading
   move_cursor_key = nil, -- imap, use nvim_set_current_win to move cursor between current win and floating
 })
+
+-- require('swenv').setup({
+--   -- Should return a list of tables with a `name` and a `path` entry each.
+--   -- Gets the argument `venvs_path` set below.
+--   -- By default just lists the entries in `venvs_path`.
+--   get_venvs = function(venvs_path)
+--     return require('swenv.api').get_venvs(venvs_path)
+--   end,
+--   -- Path passed to `get_venvs`.
+--   venvs_path = vim.fn.expand('~/anaconda3/envs'),
+--   -- Something to do after setting an environment, for example call vim.cmd.LspRestart
+--   post_set_venv = nil,
+-- })
