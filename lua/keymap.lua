@@ -50,7 +50,7 @@ vim.keymap.set('n', '<A-left>', ':BufferLineMovePrev<cr>', { noremap = true })
 vim.keymap.set('n', '<A-right>', ':BufferLineMoveNext<cr>', { noremap = true })
 
 
-vim.keymap.set('n', '<leader>e', ':NvimTreeToggle<CR>', { noremap = true, desc = ':NvimTreeToggle' })
+vim.keymap.set('n', '<leader>e', ':Neotree toggle reveal<CR>', { noremap = true, desc = ':Neotree toggle' })
 
 
 vim.keymap.set('n', jit.os ~= "OSX" and '<A-w><A-w>' or '∑∑', ':b#<CR>:bd#<CR>:<ESC>' --[[ the :<ESC> is a little hack to refresh the bufferline ]], { desc = 'Delete a buffer' })

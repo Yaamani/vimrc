@@ -12,7 +12,7 @@ require "plugins.telescope"
 require "plugins.lualine"
 require "plugins.bufferline"
 require "plugins.startify"
-require "plugins.nvimtree"
+require "plugins.neotree"
 require "plugins.illuminate"
 require "plugins.neoscroll"
 -- require "plugins.scrollbar" -- The culprit of an extremely slow performance
