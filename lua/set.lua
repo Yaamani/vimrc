@@ -74,8 +74,8 @@ vim.o.equalalways = false
 
 vim.o.winblend = 25
 
-vim.opt.winfixwidth = true
-vim.opt.winfixheight = true
+-- vim.opt.winfixwidth = true
+-- vim.opt.winfixheight = true
 
 -- vim.opt.verbose = 1
 
