@@ -22,6 +22,9 @@ vim.o.undofile = true
 vim.o.ignorecase = true
 vim.o.smartcase = true
 
+-- Set terminal window title
+vim.o.title = true
+
 -- Use PowerShell 7 on Windows
 -- if jit.os == 'Windows' then
 --   vim.cmd([[let &shell = executable('pwsh') ? 'pwsh' : 'powershell']])
