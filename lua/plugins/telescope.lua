@@ -4,6 +4,7 @@ require('telescope').setup {
   defaults = {
     winblend = 25,
     layout_strategy = "vertical",
+    path_display = { shorten = 1 },
     vimgrep_arguments = {
       "rg",
       "--color=never",
