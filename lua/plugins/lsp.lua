@@ -20,11 +20,11 @@ local on_attach = function(client, bufnr)
   map('n', '<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
 
   map('n', 'gd', vim.lsp.buf.definition, '[G]oto [D]efinition')
-  map('n', 'gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
+  map('n', 'gr', function() require('telescope.builtin').lsp_references{ path_display = { shorten=1 } } end, '[G]oto [R]eferences')
   map('n', 'gI', vim.lsp.buf.implementation, '[G]oto [I]mplementation')
   map('n', '<leader>D', vim.lsp.buf.type_definition, 'Type [D]efinition')
-  map('n', '<leader>ds', require('telescope.builtin').lsp_document_symbols, '[D]ocument [S]ymbols')
-  map('n', '<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
+  map('n', '<leader>ds', function() require('telescope.builtin').lsp_document_symbols{ path_display = { shorten=1 } } end, '[D]ocument [S]ymbols')
+  map('n', '<leader>ws', function() require('telescope.builtin').lsp_dynamic_workspace_symbols{ path_display = { shorten=1 } } end, '[W]orkspace [S]ymbols')
 
   -- See `:help K` for why this keymap
   map('n', 'K', vim.lsp.buf.hover, 'Hover Documentation')
