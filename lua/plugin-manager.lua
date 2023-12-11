@@ -288,4 +288,6 @@ require('lazy').setup({
 
   -- 'AckslD/swenv.nvim',
 
+  'mfussenegger/nvim-dap-python',
+
 }, {})

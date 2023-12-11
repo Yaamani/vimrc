@@ -2,6 +2,8 @@ require("mason-nvim-dap").setup({
   ensure_installed = { "js-debug-adapter" }
 })
 
+require('dap-python').setup('~/.virtualenvs/debugpy/Scripts/python.exe')
+
 require("nvim-dap-virtual-text").setup()
 
 require("dapui").setup()
