@@ -156,6 +156,7 @@ require('lazy').setup({
   'rcarriga/nvim-dap-ui',
   'theHamsta/nvim-dap-virtual-text',
   'nvim-telescope/telescope-dap.nvim',
+  'mfussenegger/nvim-dap-python',
   -- {
   --   'microsoft/vscode-js-debug',
   --   lazy = true,
@@ -287,7 +288,5 @@ require('lazy').setup({
   'Exafunction/codeium.vim',
 
   -- 'AckslD/swenv.nvim',
-
-  'mfussenegger/nvim-dap-python',
 
 }, {})
