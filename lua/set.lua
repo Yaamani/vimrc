@@ -68,6 +68,7 @@ vim.o.autowrite = true
 vim.o.autowriteall = true
 
 vim.o.scrolloff = 8
+vim.o.sidescrolloff = 32
 
 vim.o.wrap = false
 
