@@ -2,7 +2,14 @@ require("mason-nvim-dap").setup({
   ensure_installed = { "js-debug-adapter" }
 })
 
-require('dap-python').setup('~/.virtualenvs/debugpy/Scripts/python.exe')
+-- local debugpy_python_env_binary = '~/.virtualenvs/debugpy/Scripts/python'
+local debugpy_python_env_binary = '~/.virtualenvs/debugpy/'
+if jit.os == "Windows" then
+  debugpy_python_env_binary = debugpy_python_env_binary .. '/Scripts/python.exe'
+else
+  debugpy_python_env_binary = debugpy_python_env_binary .. '/bin/python'
+end
+require('dap-python').setup(debugpy_python_env_binary)
 
 require("nvim-dap-virtual-text").setup()
 
