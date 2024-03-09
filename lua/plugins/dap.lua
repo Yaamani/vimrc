@@ -30,6 +30,23 @@ vim.fn.sign_define('DapLogPoint',             { text='', texthl='DapLogPoint'
 vim.fn.sign_define('DapStopped',              { text='', texthl='DapStopped',    --[[linehl='DapStopped',    numhl='DapStopped']] })
 
 
+require("dap").adapters["coreclr"] = {
+  type = 'executable',
+  command = vim.fn.expand('~') .. '\\netcoredbg\\netcoredbg.exe',
+  args = {'--interpreter=vscode'}
+}
+
+dap.configurations.cs = {
+  {
+    type = "coreclr",
+    name = "launch - netcoredbg",
+    request = "launch",
+    program = function()
+        return vim.fn.input('Path to dll: ', vim.fn.getcwd() .. '/bin/Debug/', 'file')
+    end,
+  },
+}
+
 -- require("dap-vscode-js").setup({
 --   -- node_path = "node", -- Path of node executable. Defaults to $NODE_PATH, and then "node"
 --   debugger_path = vim.fn.stdpath("data") .. "/mason/packages/js-debug-adapter", -- Path to vscode-js-debug installation.
