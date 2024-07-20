@@ -289,4 +289,6 @@ require('lazy').setup({
 
   -- 'AckslD/swenv.nvim',
 
+  'equalsraf/neovim-gui-shim'
+
 }, {})
