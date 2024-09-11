@@ -81,10 +81,20 @@ require("dap").adapters["pwa-node"] = {
 
 require("dap").configurations["typescript"] = {
   {
-    name = 'Launch default',
+    name = 'Launch default (ts-node)',
     type = 'pwa-node',
     request = 'launch',
     runtimeExecutable = '${workspaceFolder}/node_modules/.bin/ts-node', -- Path to a ts-node executable (VIP)
+    program = '${file}',
+    cwd = '${workspaceFolder}',
+    skipFiles = { '<node_internals>/**' },
+    console = 'integratedTerminal',
+  },
+  {
+    name = 'Launch default (tsx)',
+    type = 'pwa-node',
+    request = 'launch',
+    runtimeExecutable = '${workspaceFolder}/node_modules/.bin/tsx', -- Path to a tsx executable (VIP)
     program = '${file}',
     cwd = '${workspaceFolder}',
     skipFiles = { '<node_internals>/**' },
