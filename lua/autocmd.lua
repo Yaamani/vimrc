@@ -8,7 +8,17 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   group = highlight_group,
   pattern = '*',
 })
-
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+local checktime_group = vim.api.nvim_create_augroup('Checktime', { clear = true })
+vim.api.nvim_create_autocmd({ 'FocusGained', 'CursorHold', 'CursorHoldI'--[[ , 'Ter' ]] }, {
+  callback = function()
+    vim.cmd('checktime')
+  end,
+  group = checktime_group,
+  pattern = '*',
+})
+--------------------------------------------------------------------------------
 --------------------------------------------------------------------------------
 -- performance related autocmd
 -- performance related autocmd
