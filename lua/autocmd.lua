@@ -11,7 +11,7 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 --------------------------------------------------------------------------------
 --------------------------------------------------------------------------------
 local checktime_group = vim.api.nvim_create_augroup('Checktime', { clear = true })
-vim.api.nvim_create_autocmd({ 'FocusGained', 'CursorHold', 'CursorHoldI'--[[ , 'Ter' ]] }, {
+vim.api.nvim_create_autocmd({ 'FocusGained', 'CursorHold', 'CursorHoldI', 'TermClose' }, {
   callback = function()
     vim.cmd('checktime')
   end,
