@@ -16,6 +16,8 @@ require('vscode').setup({
     ['SpellCap'] = { undercurl = true, sp = vsc.vscGray },
     ['SpellRare'] = { undercurl = true, sp = vsc.vscGray },
     ['SpellLocal'] = { undercurl = true, sp = vsc.vscGray },
+    ['NeoTreeDotfile'] = { fg = "#626262", bg = vsc.vscNone },
+    ['NeoTreeDimText'] = { fg = "#626262", bg = vsc.vscNone }
   }
 })
 require('vscode').load()
