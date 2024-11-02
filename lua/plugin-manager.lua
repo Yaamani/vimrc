@@ -152,7 +152,12 @@ require('lazy').setup({
   -- [[ DAP (Debug Adapter Protocol) ]]
   'mfussenegger/nvim-dap',
   'jay-babu/mason-nvim-dap.nvim',
-  'rcarriga/nvim-dap-ui',
+  {
+    'rcarriga/nvim-dap-ui',
+    dependencies = {
+      "nvim-neotest/nvim-nio"
+    },
+  },
   'theHamsta/nvim-dap-virtual-text',
   'nvim-telescope/telescope-dap.nvim',
   'mfussenegger/nvim-dap-python',
