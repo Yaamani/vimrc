@@ -10,10 +10,18 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 })
 --------------------------------------------------------------------------------
 --------------------------------------------------------------------------------
+-- Checktime
+-- Checktime
+-- Checktime
+-- local i = 0;
 local checktime_group = vim.api.nvim_create_augroup('Checktime', { clear = true })
-vim.api.nvim_create_autocmd({ 'FocusGained', 'CursorHold', 'CursorHoldI', 'TermClose' }, {
-  callback = function()
+vim.api.nvim_create_autocmd({ 'FocusGained', 'TermLeave', 'TermClose' }, {
+  callback = function(ev)
     vim.cmd('checktime')
+    local events = require("neo-tree.events")
+    events.fire_event(events.GIT_EVENT) -- refresh neo-tree
+    -- vim.notify("checktime " .. i .. " (" .. ev.event .. ")")
+    -- i = i + 1
   end,
   group = checktime_group,
   pattern = '*',
