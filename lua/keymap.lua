@@ -1,5 +1,4 @@
--- Keymaps for better default experience
--- See `:help vim.keymap.set()`
+-- Keymaps for better default experienceke See `:help vim.keymap.set()`
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 
 -- greatest remap ever (thePrimeagen)
@@ -179,10 +178,10 @@ vim.keymap.set({ 'n', 'v' }, jit.os ~= "OSX" and '<A-b>' or '∫', '%')
 vim.keymap.set('n', '<leader>x', ':so<CR>')
 
 
-vim.keymap.set('i', jit.os ~= "OSX" and '<A-j>' or  '∆' , function() return vim.fn['codeium#Accept']() end, { expr = true })
-vim.keymap.set('i', jit.os ~= "OSX" and '<A-l>' or  '¬' , function() return vim.fn['codeium#CycleCompletions'](1) end, { expr = true })
-vim.keymap.set('i', jit.os ~= "OSX" and '<A-h>' or  '˙' , function() return vim.fn['codeium#CycleCompletions'](-1) end, { expr = true })
-vim.keymap.set('i', jit.os ~= "OSX" and '<A-x>' or  '≈' , function() return vim.fn['codeium#Clear']() end, { expr = true })
+-- vim.keymap.set('i', jit.os ~= "OSX" and '<A-j>' or  '∆' , function() return vim.fn['codeium#Accept']() end, { expr = true })
+-- vim.keymap.set('i', jit.os ~= "OSX" and '<A-l>' or  '¬' , function() return vim.fn['codeium#CycleCompletions'](1) end, { expr = true })
+-- vim.keymap.set('i', jit.os ~= "OSX" and '<A-h>' or  '˙' , function() return vim.fn['codeium#CycleCompletions'](-1) end, { expr = true })
+-- vim.keymap.set('i', jit.os ~= "OSX" and '<A-x>' or  '≈' , function() return vim.fn['codeium#Clear']() end, { expr = true })
 
 
 -- vim.keymap.set('n', '<leader>pe', "<cmd>lua require('swenv.api').pick_venv()<cr>", { desc = "Pick python virtualenv" });

@@ -101,7 +101,7 @@ vim.diagnostic.config({
 -- camelCaseWord_test
 
 -- codeium
-vim.g.codeium_disable_bindings = 1
+-- vim.g.codeium_disable_bindings = 1
 
 -- Neoformat
 vim.g.neoformat_try_node_exe = 1

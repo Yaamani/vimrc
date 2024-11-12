@@ -289,7 +289,13 @@ require('lazy').setup({
     build = ':call doge#install()'
   },
 
-  'Exafunction/codeium.vim',
+  {
+    "Exafunction/codeium.nvim",
+    dependencies = {
+        "nvim-lua/plenary.nvim",
+        "hrsh7th/nvim-cmp",
+    },
+  },
 
   -- 'AckslD/swenv.nvim',
 
